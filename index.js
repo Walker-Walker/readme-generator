@@ -1,4 +1,8 @@
 //function to accept user input
+const generateMarkdown = require('./utils/generateMarkdown');
+const fs = require('fs');
+const path = require('path');
+// array of questions for user
 const questions = [
     {
       type: "input",
@@ -48,11 +52,26 @@ const questions = [
   ];
   
    
+
+
+
+
+// function to write README file
+
+ function writeToFile(fileName, data) {
+     return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+   }
+// function to initialize program
+function init() {
+console.log(process.cwd());
 var inquirer = require("inquirer");
 inquirer
 .prompt(questions)
 .then((answers) => {
+  const {name, email, description, title, dependencies, tests, contribute, usage} = answers;
     console.log(answers);
+   
+    writeToFile("README.md", generateMarkdown(answers))
   })
 
   .catch((error) => {
@@ -60,17 +79,10 @@ inquirer
       console.log(error);
     }
   });
-// array of questions for user
-
-  
 
 
-
-// function to write README file
-function writeToFile(fileName, data) {}
-
-// function to initialize program
-function init() {}
+}
 
 // function call to initialize program
 init();
+// console.log(answers , "User Answers as follows")
