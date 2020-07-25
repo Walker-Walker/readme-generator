@@ -8,6 +8,15 @@ const questions = [
     type: "input",
     name: "name",
     message: "What is your Github User Name?",
+    validate: input => {
+      if(input === ""){ 
+        console.log("Please enter a GitHub User Name")
+        return false   
+      } else {
+        return true
+      } 
+      
+  }
   },
 
   {
@@ -28,31 +37,80 @@ const questions = [
     type: "input",
     name: "description",
     message: "What is your project description?",
-  },
+    validate: input => {
+      if(input === "") { 
+        console.log('Please enter description')
+        return false
+      } else {
+        return true
+      }
+
+  }
+},
   {
     type: "input",
     name: "title",
     message: "What is your project title?",
+    validate: input => {
+      if(input === ""){ 
+        console.log('\nplease enter project title')
+        return false
+      } else {
+        return true
+      }
+  }
   },
   {
     type: "input",
     name: "dependencies",
     message: "What command should be entered to install dependencies?",
+    validate: input => {
+      if(input === ""){ 
+       console.log('please enter command to install dependencies')
+        return false
+      } else {
+        return true
+      }
+  }
   },
   {
     type: "input",
     name: "tests",
     message: "What command should be entered to run tests?",
+    validate: input => {
+      if(input === "") { 
+        console.log('please enter command for test running')
+        return false
+      } else {
+        return true
+      }
+  }
   },
   {
     type: "input",
     name: "contribute",
     message: "How do you contribute to the repo?",
+    validate: input => {
+      if(input === "" ){ 
+        console.log('please describe how to contribute to the repo')
+        return false
+      } else {
+        return true
+      }
+  }
   },
   {
     type: "input",
     name: "usage",
     message: "What does the user need to know about using the repo?",
+    validate: input => {
+      if(input === ""){ 
+        console.log('please describe any additional tips for using the repo')
+        return false
+      } else{
+        return true
+      }
+  }
   },
   {
     type: "list",
