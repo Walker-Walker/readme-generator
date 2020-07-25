@@ -14,6 +14,15 @@ const questions = [
     type: "input",
     name: "email",
     message: "What is your email address?",
+    validate: input => {
+      if(input.includes("@") && input){ 
+        return true
+      } else {
+        console.log('\nplease enter a valid email')
+        return false
+      }
+
+    }
   },
   {
     type: "input",
@@ -28,7 +37,7 @@ const questions = [
   {
     type: "input",
     name: "dependencies",
-    message: "What command should be entered to install denpendencies?",
+    message: "What command should be entered to install dependencies?",
   },
   {
     type: "input",

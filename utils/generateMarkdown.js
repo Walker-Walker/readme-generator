@@ -1,29 +1,59 @@
 // function to generate markdown for README
 function generateMarkdown(answers) {
-  console.log(answers.title);
+
+
+  function spaceChecker(answers) {
+    if (answers.license.includes(" ")) {
+     answers.license = answers.license.replace(" ", "%20")
+    } 
+  }
+  spaceChecker(answers);
+
+
   return `
           
   # ${answers.title}
-  ## Description
-  ${answers.description}
+    
+  # License 
   
-  #License 
   ![Github license](https://img.shields.io/badge/licence-${answers.license}-blue.svg)
   
-          
-   ## Table of Contents
-   [installation] (#installation)
-        ${answers.description}
-       ##Installation 
-      In order to install dependencies you will do the following ${answers.dependencies}
-    [usage] (#usage)
-      ##Usage
-    ${answers.usage}
-     [Usage](#usage)
-     [Credits](#credits)
-     [License](#license)
+  # Table of Contents
 
+  [License](#license)  
+  
+  [Description](#description)
 
+  [Installation](#installation)  
+
+  [Usage](#usage)
+
+  [Contribution](#contribution)
+
+   
+  # Description
+ 
+  ${answers.description}
+  
+  # Installation 
+
+  In order to install dependencies you will do the following ${answers.dependencies}
+
+  # Usage
+ 
+  ${answers.usage}
+  
+  # Contribution
+  
+  ${answers.contribute}
+
+  # Tests
+  
+  \`${answers.tests}\`
+
+  # Questions 
+
+  If you have any questions please visit my [GitHub](https://github.com/${answers.name}/) or Email me directly at <${answers.email}>
 `;
 }
 
