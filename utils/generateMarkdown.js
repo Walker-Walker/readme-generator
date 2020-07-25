@@ -2,23 +2,29 @@
 function generateMarkdown(answers) {
   console.log(answers.title);
   return `
-          #Licence 
-            ![Github licence](https://img.shields.io/badge/licence-${answers.license}-blue.svg)
+          
+  # ${answers.title}
+  ## Description
+  ${answers.description}
   
-          # title ${answers.title}
-          ## Table of Contents
-       [installation] (#installation)
+  #License 
+  ![Github license](https://img.shields.io/badge/licence-${answers.license}-blue.svg)
+  
+          
+   ## Table of Contents
+   [installation] (#installation)
         ${answers.description}
-      
-      ##installation 
-      in order to install dependencies you will do the following ${answers.dependencies}
-
+       ##Installation 
+      In order to install dependencies you will do the following ${answers.dependencies}
+    [usage] (#usage)
+      ##Usage
+    ${answers.usage}
+     [Usage](#usage)
+     [Credits](#credits)
+     [License](#license)
 
 
 `;
-
 }
-
-
 
 module.exports = generateMarkdown;
