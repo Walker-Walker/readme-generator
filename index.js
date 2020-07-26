@@ -142,7 +142,7 @@ function init() {
         contribute,
         usage,
       } = answers;
-      console.log(answers);
+     
 
       writeToFile("README.md", generateMarkdown(answers));
     })
@@ -156,4 +156,4 @@ function init() {
 
 // function call to initialize program
 init();
-// console.log(answers , "User Answers as follows")
+
